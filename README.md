@@ -27,7 +27,7 @@ npm install
 ```
 Запуск сервера:
 ```
-npm run start
+npm start
 ```
 Сборка проекта:
 ```

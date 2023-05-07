@@ -45,6 +45,7 @@ function App() {
       <PopupWithForm
         title={"Редактировать профиль"}
         name={"profile"}
+        buttonText={"Сохранить"}
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
       >
@@ -75,6 +76,7 @@ function App() {
       <PopupWithForm
         title={"Новое место"}
         name={"new-place"}
+        buttonText={"Создать"}
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
       >
@@ -106,12 +108,14 @@ function App() {
       <PopupWithForm
         title={"Вы уверены?"}
         name={"delete"}
+        buttonText={"Да"}
         onClose={closeAllPopups}
       ></PopupWithForm>
 
       <PopupWithForm
         title={"Обновить аватар"}
         name={"avatar"}
+        buttonText={"Сохранить"}
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopups}
       >

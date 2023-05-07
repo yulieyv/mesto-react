@@ -19,7 +19,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
       .catch((err) => {
         console.log(err);
       });
-  }, [userName]);
+  }, []);
 
   useEffect(() => {
     api
@@ -30,7 +30,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
       .catch((err) => {
         console.log(err);
       });
-  }, [cards]);
+  }, []);
 
   return (
     <main className="content">
