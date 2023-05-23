@@ -1,32 +1,57 @@
 import React from "react";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Card({ card, onCardClick }) {
+
+function Card(props) {
+  const currentUser = React.useContext(CurrentUserContext);
+  const isOwn = props.card.owner._id === currentUser._id;
+  const isLiked = props.card.likes.some(i => i._id === currentUser._id);
+
+  const cardDeleteButtonClassName = (
+    `element__delete-button ${isOwn ? 'element__delete-button_hidden' : ''}`
+  );
+
+  const cardLikeButtonClassName = ( 
+    `element__like-button ${isLiked && 'element__like-button_active'}` 
+  );; 
+
   function handleClick() {
-    onCardClick(card);
+    props.onCardClick(props.card);
   }
+
+  function handleLikeClick() {
+    props.onCardLike(props.card);
+  }
+
+  function handleDeleteClick() {
+    props.onCardDelete(props.card);
+  }
+
   return (
     <div id="card" className="card">
       <li className="element">
         <img
-          src={card.link}
-          alt={card.name}
-          onClick={() => handleClick(card)}
+          src={props.link}
+          alt={props.name}
+          onClick={handleClick}
           className="element__image"
         />
         <div className="element__sign">
-          <h2 className="element__title">{card.name}</h2>
+          <h2 className="element__title">{props.name}</h2>
           <button
-            className="element__delete-button"
+            className={cardDeleteButtonClassName}
             type="button"
             aria-label="Удалить карточку"
+            onClick={handleDeleteClick}
           ></button>
           <div className="element__like-list">
             <button
-              className="element__like-button"
+              className={cardLikeButtonClassName}              
               type="button"
               title="Поставить лайк"
+              onClick={handleLikeClick}
             ></button>
-            <span className="element__like-count">{card.likes.length}</span>
+            <span className="element__like-count">{props.likes.length}</span>
           </div>
         </div>
       </li>
