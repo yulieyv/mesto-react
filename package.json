@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/yulieyv/mesto-react",
+  "homepage": "https://yulieyv.github.io/mesto-react",
   "name": "mesto-react",
   "version": "0.1.0",
   "private": true,
@@ -9,7 +9,6 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
